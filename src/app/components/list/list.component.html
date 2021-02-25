@@ -1,0 +1,21 @@
+<h2>App List works!</h2>
+<table>
+    <ng-container *ngIf="!items || items.length == 0; else data">
+        <tr>No data</tr>
+    </ng-container>
+    <ng-template #data>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let item of items; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{item.name}}</td>
+            <td>
+                <button (click)="onClick($event, item, onSelect)">Select</button>
+                <button (click)="onClick($event, item, onRemove)">Remove</button>
+            </td>
+        </tr>
+    </ng-template>
+</table>
